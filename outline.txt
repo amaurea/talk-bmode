@@ -1,0 +1,21 @@
+* Observing gravitaitonal waves
+	* induced T-modes (GW ISW)
+	* cosmic variance
+	* induced E- and B-modes (SW * thomson)
+		* Q,U and E,B definition figure
+	* (de-)lensing
+	* maps and power spectra
+	* Single wave packet examples?
+* Observations
+	* T: (cobe?), wmap, planck, etc. (and high-L to fix slope, i.e. ACT, SPT)
+	* B: QUIET, BICEP etc. Use figure of experiments so far
+	* Tension between T and B for standard model
+* Observational difficulties
+	* lensing
+	* instrument systematics
+	* foregrounds (dust!)
+* Upcoming experiments
+	* Must check literature
+	* Planck, SPT, (Adv)Actpol, KECK+BICEP 3, SPIDER?
+* Non-CMB tests
+	* Direct detection
