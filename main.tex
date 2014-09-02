@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[squaren]{SIunits}
+\usepackage{varwidth,setspace}
 \usepackage{tikz}
 \usetikzlibrary{intersections,positioning,backgrounds,fit,matrix,shapes,calc,decorations.pathmorphing}
 \usetheme{default}
@@ -89,34 +90,116 @@
 \end{tabular}\hspace*{-5mm}
 \end{frame}
 
-\begin{frame}{From pristine CMB to dirty data}
+\begin{frame}{How the telescope actually observes}
+	\begin{tikzpicture}[bad/.style={line width=8pt,red},scan/.style={thick,red}]
+		\node at (0,0) (A) {\includegraphics[height=3cm]{out_dirty/06_dust_teb_0.png}};
+		\node at (1.5,-1) (B) {\includegraphics[height=3cm]{camera.png}};
+		\draw[bad] (-1.1,-2.1) -- ( 2.6, 1.6);
+		\draw[bad] (-1.1, 1.6) -- ( 2.6,-2.1);
+		\uncover<2->{%
+		\node at (6,0) (C) {\includegraphics[height=3cm]{out_dirty/06_dust_teb_0.png}};}
+		\uncover<3->{%
+		\draw[scan] (5, 1.0) -- (7, 0.9);}
+		\uncover<4->{%
+		\draw[scan] (7, 0.9) -- (5, 0.8);}
+		\uncover<5->{%
+		\draw[scan] (5, 0.8) -- (7, 0.7);}
+		\uncover<6->{%
+		\draw[scan] (7, 0.7) -- (5, 0.6);}
+		\uncover<7->{%
+		\draw[scan] (5, 0.6) -- (7, 0.5);
+		\draw[scan] (7, 0.5) -- (5, 0.4);
+		\draw[scan] (5, 0.4) -- (7, 0.3);
+		\draw[scan] (7, 0.3) -- (5, 0.2);
+		\draw[scan] (5, 0.2) -- (7, 0.1);
+		\draw[scan] (7, 0.1) -- (5, 0.0);
+		\draw[scan] (5, 0.0) -- (7,-0.1);
+		\draw[scan] (7,-0.1) -- (5,-0.2);
+		\draw[scan] (5,-0.2) -- (7,-0.3);
+		\draw[scan] (7,-0.3) -- (5,-0.4);
+		\draw[scan] (5,-0.4) -- (7,-0.5);
+		\draw[scan] (7,-0.5) -- (5,-0.6);
+		\draw[scan] (5,-0.6) -- (7,-0.7);
+		\draw[scan] (7,-0.7) -- (5,-0.8);
+		\draw[scan] (5,-0.8) -- (7,-0.9);
+		\draw[scan] (7,-0.9) -- (5,-1.0);
+	\draw[scan] (5,-1.0) -- (7,-1.1);}
+		\uncover<2->{
+		\node at (7.5,-1) (D) {\includegraphics[height=3cm]{telescope2.png}};}
+		\uncover<3->{%
+		\draw[thick,red,->,rounded corners=1mm] (7.5,-2.4) -- (7.5,-2.6) -- (-0.5,-2.6) -- (-0.5,-2.9);
+		\node at (-0.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow100.png}};}
+		\uncover<4->{%
+		\node at ( 1.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow116.png}};}
+		\uncover<5->{%
+		\node at ( 2.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow132.png}};}
+		\uncover<6->{%
+		\node at ( 4.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow148.png}};}
+		\uncover<7->{%
+		\node at ( 5.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow164.png}};
+		\node at ( 7.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow180.png}};
+		\node at (-0.5,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow196.png}};
+		\node at ( 1.0,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow212.png}};
+		\node at ( 2.5,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow228.png}};
+		\node at ( 4.0,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow244.png}};
+		\node at ( 5.5,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow260.png}};
+		\node at ( 7.0,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow276.png}};
+		\node at (-0.5,-3.30) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow292.png}};
+		\node at ( 1.0,-3.30) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow308.png}};
+		\node at ( 2.5,-3.30) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow324.png}};
+		\node at ( 4.0,-3.30) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow340.png}};
+		\node at ( 5.5,-3.30) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow356.png}};
+		\node at ( 7.0,-3.30) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow372.png}};
+		\node at (-0.5,-3.45) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow388.png}};}
+	\end{tikzpicture}
+	\begin{center}
+		\uncover<8->{\large Time-ordered data (TOD)}
+	\end{center}
+\end{frame}
+
+\begin{frame}{The black magic of TOD analysis}
 	\begin{itemize}
-		\item Surface of last scattering (young, enthusiastic photon)
-		\item Lensing by large-scale structure (+ISW)
-		\item Contaminated by dusty galaxies and radio sources
-		\item and distorted by the SZ effect
-		\item Enters our galaxy... (somewhat dirty and tired photon)
-		\item Contaminated by synchrotron, free-free and dust
-		\item and rotated and depolarized by magnetic fields
-		\item Enters solar system... (beat-up and messy photon)
-		\item Contaminated by Zodiacal light
-		\item Enters atmosphere...
-		\item Refracted
-		\item Contaminated by atmosphere (huge, but only T)
-		\item Enters telescope... (bleeding, crawling photon)
-		\item Contaminated by sun and ground from sidelobes
-		\item and optics polarization
-		\item and smeared by the beam (and pointing jitter)
-		\item Enters detector... (dead photon or electron)
-		\item Scaled by (uncertain, variable) gain
-		\item and smeared by (uncertain, variable) time constants
-		\item and contaminated by "1/f" and "white" noise (with uncertain, variable properties)
-		\item and data glitches
-		\item and rotated by uncertain detector polarization angles
-		\item The result: Time-ordered data
-		\item Task: Peel back all those layers of contamination to recover the pure CMB
+		\item Horribly noisy: S/N per sample of $\sim 10^{-4}$ for B-modes
+		\begin{itemize}
+			\item Compensate with lots of samples: $\sim 10^{12}$ typical
+		\end{itemize}
+		\item Full of systematic errors
+			\begin{itemize}
+				\item Instrument: beam, sidelobes, telephones, glitches, gain, pointing, cross-polarization, pol. angles, noise spectra, ...
+				\item Sky: dust, synchrotron, free-free, point sources, faraday, lensing, zodiacal light, ...
+			\end{itemize}
+		\item Goal: Systematics-free high S/N CMB power spectrum
 	\end{itemize}
 \end{frame}
+
+%\begin{frame}{From pristine CMB to dirty data}
+%	\begin{itemize}
+%		\item Surface of last scattering (young, enthusiastic photon)
+%		\item Lensing by large-scale structure (+ISW)
+%		\item Contaminated by dusty galaxies and radio sources
+%		\item and distorted by the SZ effect
+%		\item Enters our galaxy... (somewhat dirty and tired photon)
+%		\item Contaminated by synchrotron, free-free and dust
+%		\item and rotated and depolarized by magnetic fields
+%		\item Enters solar system... (beat-up and messy photon)
+%		\item Contaminated by Zodiacal light
+%		\item Enters atmosphere...
+%		\item Refracted
+%		\item Contaminated by atmosphere (huge, but only T)
+%		\item Enters telescope... (bleeding, crawling photon)
+%		\item Contaminated by sun and ground from sidelobes
+%		\item and optics polarization
+%		\item and smeared by the beam (and pointing jitter)
+%		\item Enters detector... (dead photon or electron)
+%		\item Scaled by (uncertain, variable) gain
+%		\item and smeared by (uncertain, variable) time constants
+%		\item and contaminated by "1/f" and "white" noise (with uncertain, variable properties)
+%		\item and data glitches
+%		\item and rotated by uncertain detector polarization angles
+%		\item The result: Time-ordered data
+%		\item Task: Peel back all those layers of contamination to recover the pure CMB
+%	\end{itemize}
+%\end{frame}
 
 \begin{frame}{Beating down the noise}
 	\begin{itemize}
