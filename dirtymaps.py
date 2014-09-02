@@ -18,8 +18,9 @@ parser.add_argument("--faraday", type=float, default=1e-3)
 parser.add_argument("--dust",   default="1e3:1e0:-2.5")
 parser.add_argument("--atm",    default="1e9:1e1:-4")
 parser.add_argument("--white",  type=float, default=3.7)
-parser.add_argument("--angerr", type=float, default=3)
+parser.add_argument("--angerr", type=float, default=1)
 parser.add_argument("--beam",   type=float, default=30)
+parser.add_argument("--sidelobe", default="200:10:15:2")
 args = parser.parse_args()
 
 shape = (3,1024,1024)
@@ -54,6 +55,18 @@ def sim_points(shape, wcs, info):
 	pmap = enmap.ifft(enmap.fft(rawmap)*kernel[None]).real
 	print np.max(pmap), np.min(pmap)
 	return pmap
+
+def parse_sidelobe(infostr):
+	toks = [float(w) for w in infostr.split(":")]
+	return bunch.Bunch(amps=np.array([toks[0],toks[1],toks[1]]),width=toks[2]*np.pi/180/60,wave=toks[3])
+
+def sim_sidelobe(shape, wcs, info):
+	# Horizontal band for illustration
+	pos = enmap.posmap(shape, wcs)
+	x  = pos[0]
+	x0 = x.reshape(-1)[np.random.randint(x.size)]
+	r  = (x-x0)/info.width
+	return np.exp(-0.5*r**2)*np.cos(2*np.pi*r/info.wave+np.random.uniform(0,2*np.pi,3)[:,None,None])*info.amps[:,None,None]
 
 def blur(m, sigma):
 	l  = np.sum(m.lmap()**2,0)**0.5
@@ -122,15 +135,20 @@ m += atm; add(res, m, "atm")
 m = enmap.rotate_pol(m, args.angerr*np.pi/180)
 add(res, m, "polerr")
 
-# 11. Blur
+# 11. Sidelobe
+linfo = parse_sidelobe(args.sidelobe)
+lobe  = sim_sidelobe(shape, wcs, linfo)
+m += lobe; add(res, m, "sidelobe")
+
+# 12. Blur
 m = blur(m, args.beam*np.pi/180/60/(8*np.log(2))*0.5)
 add(res, m, "beam")
 
-# 12. Add white noise
+# 13. Add white noise
 white = enmap.rand_gauss(shape, wcs)*(np.array([args.white]+[args.white*2**0.5]*2)/args.res)[:,None,None]
 m += white; add(res, m, "noise")
 
-# 13. Add glitches (localized features with even higher amplitude)
+# 14. Add glitches (localized features with even higher amplitude)
 ginfo = parse_points(args.glitch)
 glitch = sim_points(shape, wcs, ginfo)
 m += glitch; add(res, m, "glitch")

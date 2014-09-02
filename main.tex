@@ -2,11 +2,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[squaren]{SIunits}
 \usepackage{tikz}
-\usetikzlibrary{intersections,positioning,backgrounds,fit,matrix,shapes,calc}
+\usetikzlibrary{intersections,positioning,backgrounds,fit,matrix,shapes,calc,decorations.pathmorphing}
 \usetheme{default}
 
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 \setbeamertemplate{footline}{\hspace*{.5cm}\scriptsize{\hfill\raisebox{1mm}{\insertframenumber}\hspace*{.5cm}}}
+
+\setlength{\tabcolsep}{0.5mm}
 
 \title{Measuring B-modes}
 \author{Sigurd Kirkevold Næss}
@@ -17,6 +19,74 @@
 
 \begin{frame}
 	\titlepage
+\end{frame}
+
+\begin{frame}{From pristine CMB to dirty data}
+	\begin{center}
+		\large%
+		\only<1>{At the surface of last scattering}%
+		\only<2>{Lensing by large-scale structure}%
+		\only<3>{Dusty galaxies, radio sources, SZ clusters}%
+		\only<4>{Faraday rotation}%
+		\only<5>{Galctic dust, synchrotron, etc}%
+		\only<6>{Atmospheric emission}%
+		\only<7>{Absolute polarization offset ($1^\circ$ example)}%
+		\only<8>{Telescope optics (w. sidelobe)}%
+		\only<9>{Detector noise}%
+		\only<10>{Glitches}%
+		\uncover<1-0>{()}% Dummy to keep line height constant
+	\end{center}
+	\begin{tikzpicture}[thick,red,decoration={snake, amplitude=1mm,segment length = 5mm}]
+		\node at (0.0,0) (A) {\includegraphics[height=1cm]{sls.png}};
+		\node at (2.5,0) (B) {\includegraphics[height=1.5cm]{lss.jpeg}};
+		\node at (5.0,0) (C) {\includegraphics[height=1cm]{galaxy.jpeg}};
+		\node at (7.5,0) (D) {\includegraphics[height=1cm]{cloud.jpg}};
+		\node at (10.0,0) (E) {\includegraphics[height=1cm]{telescope.jpg}};
+		\only<1>{\draw [decorate] (0,0) -- (0.5,0);}%
+		\only<2-3>{\draw [decorate] (0,0) -- (2.5,0);}%
+		\only<4-5>{\draw [decorate] (0,0) -- (5.0,0);}%
+		\only<6>{\draw [decorate] (0,0) -- (7.5,0);}%
+		\only<7-10>{\draw [decorate] (0,0) -- (10.0,0);}%
+	\end{tikzpicture}
+	\hspace*{-5mm}\begin{tabular}{ccc}
+		T&E&B\\
+	\only<1>{\includegraphics[width=0.35\textwidth]{out_dirty/01_cmb_teb_0.png}}%
+	\only<2>{\includegraphics[width=0.35\textwidth]{out_dirty/02_lens_teb_0.png}}%
+	\only<3>{\includegraphics[width=0.35\textwidth]{out_dirty/04_sz_teb_0.png}}%
+	\only<4>{\includegraphics[width=0.35\textwidth]{out_dirty/05_faraday_teb_0.png}}%
+	\only<5>{\includegraphics[width=0.35\textwidth]{out_dirty/06_dust_teb_0.png}}%
+	\only<6>{\includegraphics[width=0.35\textwidth]{out_dirty/07_atm_teb_0.png}}%
+	\only<7>{\includegraphics[width=0.35\textwidth]{out_dirty/08_polerr_teb_0.png}}%
+	\only<8>{\includegraphics[width=0.35\textwidth]{out_dirty/10_beam_teb_0.png}}%
+	\only<9>{\includegraphics[width=0.35\textwidth]{out_dirty/11_noise_teb_0.png}}%
+	\only<10>{\includegraphics[width=0.35\textwidth]{out_dirty/12_glitch_teb_0.png}}%
+	&
+	\only<1>{\includegraphics[width=0.35\textwidth]{out_dirty/01_cmb_teb_1.png}}%
+	\only<2>{\includegraphics[width=0.35\textwidth]{out_dirty/02_lens_teb_1.png}}%
+	\only<3>{\includegraphics[width=0.35\textwidth]{out_dirty/04_sz_teb_1.png}}%
+	\only<4>{\includegraphics[width=0.35\textwidth]{out_dirty/05_faraday_teb_1.png}}%
+	\only<5>{\includegraphics[width=0.35\textwidth]{out_dirty/06_dust_teb_1.png}}%
+	\only<6>{\includegraphics[width=0.35\textwidth]{out_dirty/07_atm_teb_1.png}}%
+	\only<7>{\includegraphics[width=0.35\textwidth]{out_dirty/08_polerr_teb_1.png}}%
+	\only<8>{\includegraphics[width=0.35\textwidth]{out_dirty/10_beam_teb_1.png}}%
+	\only<9>{\includegraphics[width=0.35\textwidth]{out_dirty/11_noise_teb_1.png}}%
+	\only<10>{\includegraphics[width=0.35\textwidth]{out_dirty/12_glitch_teb_1.png}}%
+	&
+	\only<1>{\includegraphics[width=0.35\textwidth]{out_dirty/01_cmb_teb_2.png}}%
+	\only<2>{\includegraphics[width=0.35\textwidth]{out_dirty/02_lens_teb_2.png}}%
+	\only<3>{\includegraphics[width=0.35\textwidth]{out_dirty/04_sz_teb_2.png}}%
+	\only<4>{\includegraphics[width=0.35\textwidth]{out_dirty/05_faraday_teb_2.png}}%
+	\only<5>{\includegraphics[width=0.35\textwidth]{out_dirty/06_dust_teb_2.png}}%
+	\only<6>{\includegraphics[width=0.35\textwidth]{out_dirty/07_atm_teb_2.png}}%
+	\only<7>{\includegraphics[width=0.35\textwidth]{out_dirty/08_polerr_teb_2.png}}%
+	\only<8>{\includegraphics[width=0.35\textwidth]{out_dirty/10_beam_teb_2.png}}%
+	\only<9>{\includegraphics[width=0.35\textwidth]{out_dirty/11_noise_teb_2.png}}%
+	\only<10>{\includegraphics[width=0.35\textwidth]{out_dirty/12_glitch_teb_2.png}}%
+	\\
+	{\footnotesize $-500\mu$K\enskip\includegraphics[width=12mm,height=2mm]{colorbar.png}\enskip$500\mu$K} &
+	{\footnotesize $-20\mu$K\enskip\includegraphics[width=12mm,height=2mm]{colorbar.png}\enskip$20\mu$K} &
+	{\footnotesize $-1\mu$K\enskip\includegraphics[width=12mm,height=2mm]{colorbar.png}\enskip$1\mu$K}
+\end{tabular}\hspace*{-5mm}
 \end{frame}
 
 \begin{frame}{From pristine CMB to dirty data}
