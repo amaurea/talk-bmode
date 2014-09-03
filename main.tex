@@ -6,6 +6,10 @@
 \usetikzlibrary{intersections,positioning,backgrounds,fit,matrix,shapes,calc,decorations.pathmorphing}
 \usetheme{default}
 
+\newcommand*{\mimg}[2]{\begingroup
+\setbox0=\hbox{\includegraphics[height=#2]{#1}}\parbox{\wd0}{\box0}\endgroup}
+
+
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 \setbeamertemplate{footline}{\hspace*{.5cm}\scriptsize{\hfill\raisebox{1mm}{\insertframenumber}\hspace*{.5cm}}}
 
@@ -107,8 +111,10 @@
 		\uncover<6->{%
 		\draw[scan] (7, 0.7) -- (5, 0.6);}
 		\uncover<7->{%
-		\draw[scan] (5, 0.6) -- (7, 0.5);
-		\draw[scan] (7, 0.5) -- (5, 0.4);
+		\draw[scan] (5, 0.6) -- (7, 0.5);}
+		\uncover<8->{%
+		\draw[scan] (7, 0.5) -- (5, 0.4);}
+		\uncover<9->{%
 		\draw[scan] (5, 0.4) -- (7, 0.3);
 		\draw[scan] (7, 0.3) -- (5, 0.2);
 		\draw[scan] (5, 0.2) -- (7, 0.1);
@@ -136,8 +142,10 @@
 		\uncover<6->{%
 		\node at ( 4.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow148.png}};}
 		\uncover<7->{%
-		\node at ( 5.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow164.png}};
-		\node at ( 7.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow180.png}};
+		\node at ( 5.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow164.png}};}
+		\uncover<8->{%
+		\node at ( 7.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow180.png}};}
+		\uncover<9->{
 		\node at (-0.5,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow196.png}};
 		\node at ( 1.0,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow212.png}};
 		\node at ( 2.5,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow228.png}};
@@ -153,9 +161,44 @@
 		\node at (-0.5,-3.45) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow388.png}};}
 	\end{tikzpicture}
 	\begin{center}
-		\uncover<8->{\large Time-ordered data (TOD)}
+		\uncover<10->{\large Time-ordered data (TOD)}
 	\end{center}
 \end{frame}
+
+\begin{frame}{Recovering the sky}
+	\begin{block}{Ideal case: Simple linear problem}
+	\[ d = {\color{green}P}{\color{blue}s} + {\color{red}n} \]
+	with TOD $d$,
+	scan pattern + telescope response {\color{green} $P$},
+	cmb map {\color{blue} $s$}, gaussian noise {\color{red} $n$} with cov {\color{red}$N$}.
+	Then
+	\[ {\color{blue}s} = ({\color{green}P}^T{\color{red}N}^{-1}{\color{green}P})^{-1}{\color{green}P}^T{\color{red}N}^{-1}d \]
+	is an optimal estimator.
+	\end{block}
+	\uncover<2->{%
+	\begin{block}{Real world: Full of systematics}
+	\[ d = {\color{green}P}({\color{blue}s} + \underbrace{{\color{purple} \textrm{gal} +
+		\textrm{ptsrc} + \ldots}}_{\textrm{sky systematics}}) +
+		{\color{red}n} + \underbrace{\color{orange} \textrm{optics} + \textrm{glitch} +
+	\ldots}_{\textrm{telescope systematics}} \]
+	\end{block}}
+\end{frame}
+
+\begin{frame}{Handling telescope systematics}
+	\begin{itemize}
+		\item Local systematics that do not rotate across the sky with the CMB
+		\item Glitches, sidelobe contamination, gain errors, pointing errors, etc.
+		\item {\bf Time-dependent in CMB-frame}
+		\item Analyse and verify by using jackknives
+	\end{itemize}
+	\[
+		\underbrace{\mimg{out_dirty/null1_0.png}{2.0cm}}_{\textrm{Subset 1}} -
+		\underbrace{\mimg{out_dirty/null1_1.png}{2.0cm}}_{\textrm{Subset 2}} =
+		\underbrace{\mimg{out_dirty/null1_2.png}{2.0cm}}_{\textrm{Difference}} \ne
+		\underbrace{\mimg{out_dirty/null1_3.png}{2.0cm}}_{\textrm{Expected}}
+	\]
+\end{frame}
+
 
 \begin{frame}{The black magic of TOD analysis}
 	\begin{itemize}
