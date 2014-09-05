@@ -155,7 +155,7 @@
 \end{center}
 \end{frame}
 
-\begin{frame}{How the telescope actually observes}
+\begin{frame}{Not like a digital camera}
 	\begin{tikzpicture}[bad/.style={line width=8pt,red},scan/.style={thick,red}]
 		\node at (0,0) (A) {\includegraphics[height=3cm]{out_dirty/06_dust_teb_0.png}};
 		\uncover<2->{%
@@ -224,7 +224,38 @@
 		\node at (-0.5,-3.45) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow388.png}};}
 	\end{tikzpicture}
 	\begin{center}
-		\uncover<11->{\large Time-ordered data (TOD)}
+		\uncover<12->{\large Time-ordered data (TOD)}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Example TOD}
+	\begin{center}
+		\vspace{-1.5cm}
+		\begin{tikzpicture}
+			\node at (0,0) {\includegraphics[width=\textwidth]{example_tod.png}};
+			\uncover<7->{%
+			\draw (-1.2, 0.4) ellipse (4mm and 7mm);
+			\draw (2.70,0.7) ellipse (4mm and 12mm);}
+		\end{tikzpicture}
+		\uncover<2->{%
+		\begin{block}{Ingredients}
+			\begin{columns}
+				\begin{column}{5cm}
+					\begin{itemize}
+						\item<2-> 90\% atmospheric noise
+						\item<3-> 10\% instrumental noise
+						\item<4-> 0.4\% T-modes
+					\end{itemize}
+				\end{column}
+				\begin{column}{5cm}
+					\begin{itemize}
+						\item<5-> 0.002\% E-modes
+						\item<6-> 0.0002\% B-modes
+						\item<7-> and a few glitches
+					\end{itemize}
+				\end{column}
+			\end{columns}
+		\end{block}}
 	\end{center}
 \end{frame}
 
