@@ -93,7 +93,7 @@ def add(res, m, desc):
 def output(res, dir):
 	utils.mkdir(dir)
 	for i, (tqu, teb, desc) in enumerate(zip(res.tqu, res.teb, res.desc)):
-		#enmap.write_map("%s/%02d_%s_tqu.hdf" % (dir,i+1,desc), tqu)
+		enmap.write_map("%s/%02d_%s_tqu.hdf" % (dir,i+1,desc), tqu)
 		enmap.write_map("%s/%02d_%s_teb.hdf" % (dir,i+1,desc), teb)
 
 cl_scal, cl_phi = powspec.read_camb_scalar(args.scal_cls, expand=True)

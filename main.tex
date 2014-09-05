@@ -94,27 +94,90 @@
 \end{tabular}\hspace*{-5mm}
 \end{frame}
 
+\begin{frame}{What the telescope actually observes}
+	\begin{tikzpicture}[bad/.style={line width=3pt,red}]
+		\node at (0,0) {\begin{tabular}{ccc}
+				T & E & B \\
+				\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_teb_0.png} &
+				\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_teb_1.png} &
+				\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_teb_2.png}
+		\end{tabular}};
+		\draw[bad] (-5, 1.5) -- (5,-1.8);
+		\draw[bad] (-5,-1.8) -- (5, 1.5);
+		\node at (0,-4) {\begin{tabular}{ccc}
+				\only<1-2>{T+pol}\only<3->{T} & \uncover<3->{Q} & \uncover<3->{U} \\
+				\only<1-2>{\includegraphics[width=0.30\textwidth]{out_dirty/t_polvec.png}}%
+				\only<3->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_0.png}} &
+				\uncover<3->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_1.png}} &
+				\uncover<3->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_2.png}}
+		\end{tabular}};
+		\uncover<2>{\node at (1.5,-4) {\includegraphics[height=3cm]{qudef.pdf}};}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{E, B and Q, U}
+	\begin{itemize}
+		\item E and B result from quadrupole-convolutions of Q and U
+		\begin{align*}
+			E =& \mimg{out_dirty/queb_0.png}{1cm} \otimes Q + \mimg{out_dirty/queb_2.png}{1cm} \otimes U \\
+			B =& \mimg{out_dirty/queb_1.png}{1cm} \otimes Q + \mimg{out_dirty/queb_3.png}{1cm} \otimes U
+		\end{align*}
+	\item Non-local transformation
+		\begin{tabular}{cccc}
+			Q & U & E & B \\
+			\includegraphics[height=2cm]{out_dirty/single_src_tqu_1.png} &
+			\includegraphics[height=2cm]{out_dirty/single_src_tqu_2.png} &
+			\includegraphics[height=2cm]{out_dirty/single_src_teb_1.png} &
+			\includegraphics[height=2cm]{out_dirty/single_src_teb_2.png}
+		\end{tabular}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{E, B and Q, U}
+	\begin{center}
+		\includegraphics[height=8cm]{EB_iau.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Actually only observe linear combinations}
+	\begin{center}
+	\begin{tabular}{c}
+		\only<1>{Detector 1: T+Q}%
+		\only<2>{Detector 2: T+U}%
+		\only<3>{Detector 3: T-Q}%
+		\only<4>{Detector 4: T-U}%
+		\\
+		\only<1>{\includegraphics[height=7cm]{out_dirty/tqu_lincombs_0.png}}%
+		\only<2>{\includegraphics[height=7cm]{out_dirty/tqu_lincombs_1.png}}%
+		\only<3>{\includegraphics[height=7cm]{out_dirty/tqu_lincombs_2.png}}%
+		\only<4>{\includegraphics[height=7cm]{out_dirty/tqu_lincombs_3.png}}%
+	\end{tabular}
+\end{center}
+\end{frame}
+
 \begin{frame}{How the telescope actually observes}
 	\begin{tikzpicture}[bad/.style={line width=8pt,red},scan/.style={thick,red}]
 		\node at (0,0) (A) {\includegraphics[height=3cm]{out_dirty/06_dust_teb_0.png}};
-		\node at (1.5,-1) (B) {\includegraphics[height=3cm]{camera.png}};
-		\draw[bad] (-1.1,-2.1) -- ( 2.6, 1.6);
-		\draw[bad] (-1.1, 1.6) -- ( 2.6,-2.1);
 		\uncover<2->{%
-		\node at (6,0) (C) {\includegraphics[height=3cm]{out_dirty/06_dust_teb_0.png}};}
+		\node at (1.5,-1) (B) {\includegraphics[height=3cm]{camera.png}};}
 		\uncover<3->{%
-		\draw[scan] (5, 1.0) -- (7, 0.9);}
+		\draw[bad] (-1.1,-2.1) -- ( 2.6, 1.6);
+		\draw[bad] (-1.1, 1.6) -- ( 2.6,-2.1);}
 		\uncover<4->{%
-		\draw[scan] (7, 0.9) -- (5, 0.8);}
+		\node at (6,0) (C) {\includegraphics[height=3cm]{out_dirty/06_dust_teb_0.png}};}
 		\uncover<5->{%
-		\draw[scan] (5, 0.8) -- (7, 0.7);}
+		\draw[scan] (5, 1.0) -- (7, 0.9);}
 		\uncover<6->{%
-		\draw[scan] (7, 0.7) -- (5, 0.6);}
+		\draw[scan] (7, 0.9) -- (5, 0.8);}
 		\uncover<7->{%
-		\draw[scan] (5, 0.6) -- (7, 0.5);}
+		\draw[scan] (5, 0.8) -- (7, 0.7);}
 		\uncover<8->{%
-		\draw[scan] (7, 0.5) -- (5, 0.4);}
+		\draw[scan] (7, 0.7) -- (5, 0.6);}
 		\uncover<9->{%
+		\draw[scan] (5, 0.6) -- (7, 0.5);}
+		\uncover<10->{%
+		\draw[scan] (7, 0.5) -- (5, 0.4);}
+		\uncover<11->{%
 		\draw[scan] (5, 0.4) -- (7, 0.3);
 		\draw[scan] (7, 0.3) -- (5, 0.2);
 		\draw[scan] (5, 0.2) -- (7, 0.1);
@@ -130,22 +193,22 @@
 		\draw[scan] (5,-0.8) -- (7,-0.9);
 		\draw[scan] (7,-0.9) -- (5,-1.0);
 	\draw[scan] (5,-1.0) -- (7,-1.1);}
-		\uncover<2->{
+		\uncover<4->{
 		\node at (7.5,-1) (D) {\includegraphics[height=3cm]{telescope2.png}};}
-		\uncover<3->{%
+		\uncover<5->{%
 		\draw[thick,red,->,rounded corners=1mm] (7.5,-2.4) -- (7.5,-2.6) -- (-0.5,-2.6) -- (-0.5,-2.9);
 		\node at (-0.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow100.png}};}
-		\uncover<4->{%
-		\node at ( 1.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow116.png}};}
-		\uncover<5->{%
-		\node at ( 2.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow132.png}};}
 		\uncover<6->{%
-		\node at ( 4.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow148.png}};}
+		\node at ( 1.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow116.png}};}
 		\uncover<7->{%
-		\node at ( 5.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow164.png}};}
+		\node at ( 2.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow132.png}};}
 		\uncover<8->{%
+		\node at ( 4.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow148.png}};}
+		\uncover<9->{%
+		\node at ( 5.5,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow164.png}};}
+		\uncover<10->{%
 		\node at ( 7.0,-3.00) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow180.png}};}
-		\uncover<9->{
+		\uncover<11->{
 		\node at (-0.5,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow196.png}};
 		\node at ( 1.0,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow212.png}};
 		\node at ( 2.5,-3.15) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow228.png}};
@@ -161,7 +224,7 @@
 		\node at (-0.5,-3.45) {\includegraphics[height=0.7mm,width=1.5cm]{out_dirty/scanrow388.png}};}
 	\end{tikzpicture}
 	\begin{center}
-		\uncover<10->{\large Time-ordered data (TOD)}
+		\uncover<11->{\large Time-ordered data (TOD)}
 	\end{center}
 \end{frame}
 
