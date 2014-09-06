@@ -1,0 +1,22 @@
+# BICEP1 three-year data release
+# Barkats et al, Degree Scale CMB Polarization Measurements from Three Years of BICEP1 Data
+# http://bicep.rc.fas.harvard.edu/bicep1_3yr/
+# 
+# File: B1_3yr_BBlimits_20131003.txt
+# Date: 2013-10-03
+#
+# BICEP1 95% CL upper limits on BB spectrum
+# This text file contains the 95% CL upper limits on the BB spectrum [ell*(ell+1)*C_{ell}/(2*pi)].
+# They correspond to the black points on the BB panel of Figure 13 from Barkats et al.
+# The units are uK^2.
+# 
+# Columns: lmin, lcenter, lmax, BB 95% UL
+ 21   46.6    55    0.0828
+ 56   73.7    90    0.0561
+ 91   107.2   125   0.1176
+126   141.2   160   0.0799
+161   175.8   195   0.1749
+196   210.1   230   0.3261
+231   244.2   265   0.5980
+266   278.8   300   1.0579
+301   313.1   335   2.8859

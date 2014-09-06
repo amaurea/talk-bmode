@@ -311,18 +311,119 @@
 	\]
 \end{frame}
 
-Status before bicep (TT, EE, BB plot possible? Afraid EE and BB will overlap and be messy)
-Bicep results
-Surprise
-Flurry of articles and blog posts
-Criticism
-
-\begin{frame}{Observational status}
+\begin{frame}{Which foregrounds?}
 	\begin{center}
-		\vspace{-5mm}
-		\includegraphics[height=9cm]{bb_limits_mar2014.pdf}
+		\begin{tikzpicture}
+			\node at ( 0.0, 0.0) {\includegraphics[height=7cm]{wmap_lambda_foregrounds.pdf}};
+			\uncover<2->{%
+			\node[rotate=-30] at ( 3.0,-1.5) {\color[rgb]{0.3,0.3,1} $\mathbf{<1\%}$};
+			\node[rotate=-50] at (-2.4, 0.1) {\color[rgb]{0.5,0.5,0} $\mathbf{<1\%}$};
+			\node[rotate=25]  at (-2.0,-1.0) {\color[rgb]{0.1,0.7,0} $\mathbf{2-20\%}$};
+			\node[rotate=-40] at ( 0.9,-1.7) {\color[rgb]{1.0,0.5,0} $\mathbf{5-50\%}$};}
+		\end{tikzpicture}
+
+		{\footnotesize Credit: LAMBDA}
+		% Spinning dust 0.5% polarized at 50+ GHz. Completely irrelevant.
+		% Thermal dust 2-20% polarized. 8% pretty typical. More polarized in
+		% low-dust regions, which implies that the cleanest areas in T will
+		% be less clean in P than one might think naively.
+		% Show Planck figure. Bicep patch sadly missing.
+		% Free-free \lessim 1%
+		% Synchrotron up to 75%, probably 5-50%?
 	\end{center}
 \end{frame}
+
+\begin{frame}{Which foregrounds? (Pol.)}
+	\begin{center}
+		\includegraphics[height=8.0cm,width=8cm]{bicep_foreground_freq_nor.png}
+
+		{\footnotesize Credit: Thomas Hertog}
+	\end{center}
+\end{frame}
+
+%
+%%Don't want to get too specific about foregrounds before starting BICEP
+%%section. Need a natural way to go from the short foreground summary
+%%to CMB spectra.
+%%
+%%Status before bicep (TT, EE, BB plot possible? Afraid EE and BB will overlap and be messy)
+%%Bicep results
+%%Surprise
+%%Flurry of articles and blog posts
+%%Criticism
+
+\begin{frame}{Observational status before BICEP 2}
+	\begin{center}
+		\vspace{-5mm}
+		\begin{tikzpicture}
+			\node[anchor=north east] at (0,0) {\includegraphics[height=8cm,width=10cm,trim=8mm 3mm 8mm 10mm,clip]{spectra/spectra_before.pdf}};
+			\node[anchor=north west] at (-7mm,-3mm) {
+				\begin{tabular}{l}
+					{\color[rgb]{1.0,0.0,0.0}Planck} \\
+					{\color[rgb]{0.0,0.5,0.0}ACT} \\
+					{\color[rgb]{0.0,0.0,1.0}SPT} \\
+					{\color[rgb]{1.0,0.64,0.0}WMAP} \\
+					{\color[rgb]{0.0,1.0,1.0}Polarbear} \\
+					{\color[rgb]{0.5,0.0,0.5}QUIET} \\
+					{\color[rgb]{1.0,0.75,0.79}QUAD} \\
+					{\color[rgb]{0.64,0.16,0.16}BICEP 1}
+				\end{tabular}
+			};
+			\uncover<1-5>{%
+				\node[rotate=45] at (-8.55,-6.8) {95\%};
+				\node[rotate=20] at (-6.2,-4.6) {\footnotesize Limits on BB};}
+				\node[rotate=22] at (-1.5,-2.5) {\footnotesize Pt.src.};
+			\uncover<2-4>{%
+			\draw[red,thick] (-8.4,-7) circle (0.8cm);}
+			\uncover<3-4>{%
+			\draw[red,thick] (-9,-1.5) circle (0.6cm);}
+			\uncover<4>{%
+			\node at (-3,-4) {\includegraphics[height=7cm]{spectra/spectra_lowl_tt.pdf}};
+			\node at (-1,-4.5) (A) {$r=0$};
+			\node at (-1,-2.5) (B) {$r=0.1$};
+			\draw[thick,->] (A.north) -- ++(0, 7.7mm);
+			\draw[thick,->] (B.south) -- ++(0,-6.1mm);}
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Observational status after BICEP 2}
+	\begin{center}
+		\vspace{-5mm}
+		\begin{tikzpicture}
+			\node[anchor=north east] at (0,0) {\includegraphics[height=8cm,width=10cm,trim=8mm 3mm 8mm 10mm,clip]{spectra/spectra_after.pdf}};
+			\node[anchor=north west] at (-7mm,-3mm) {
+				\begin{tabular}{l}
+					{\color[rgb]{1.0,0.0,0.0}Planck} \\
+					{\color[rgb]{0.0,0.5,0.0}ACT} \\
+					{\color[rgb]{0.0,0.0,1.0}SPT} \\
+					{\color[rgb]{1.0,0.64,0.0}WMAP} \\
+					{\color[rgb]{0.0,1.0,1.0}Polarbear} \\
+					{\color[rgb]{0.5,0.0,0.5}QUIET} \\
+					{\color[rgb]{1.0,0.75,0.79}QUAD} \\
+					{\color[rgb]{0.64,0.16,0.16}BICEP 1} \\
+					{\color[rgb]{0.0,0.0,0.0}BICEP 2}
+				\end{tabular}
+			};
+			\node[rotate=45] at (-8.55,-6.8) {95\%};
+			\node[rotate=22] at (-1.5,-2.5) {\footnotesize Pt.src.};
+			\uncover <2->{%
+			\node at (-5,-6.5) {\Large $r = 0.2^{+0.07}_{-0.05}$!?};}
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+%\begin{frame}{Observational status}
+%	\begin{center}
+%		\vspace{-5mm}
+%		\includegraphics[height=9cm]{bb_limits_mar2014.pdf}
+%	\end{center}
+%\end{frame}
+
+% Reactions:
+%  http://telescoper.wordpress.com/2014/03/19/time-for-a-cosmological-reality-check/
+%  http://resonaances.blogspot.co.uk/2014/05/is-bicep-wrong.html
+
 
 %\begin{frame}{From pristine CMB to dirty data}
 %	\begin{itemize}

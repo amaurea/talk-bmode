@@ -1,0 +1,40 @@
+# Wilkinson Microwave Anisotropy Probe (WMAP) 9-year data release.
+# WMAP 9-Year Combined Power Spectrum, version 5.0 (December 2012)
+#
+# References: - WMAP Explanatory Supplement: http://lambda.gsfc.nasa.gov/
+#             - Bennett, et al. (2012)
+#             - Hinshaw, et al. (2012)
+#
+# Column 1 = mean multipole moment l for the bin
+# Column 2 = smallest l contributing to the bin
+# Column 3 = largest l contributing to the bin
+# Column 4 = mean value of EE power spectrum (=  l(l+1)/2pi * C_l) in the bin,
+#            units = uK^2.  The mean is unweighted.
+# Column 5 = 'Error' for binned value, as computed from diagonal terms of the
+#            Fisher matrix, units = uK^2.
+#            Included only as an estimate of their magnitude.  The
+#            multipole moments are slightly coupled, so a correct
+#            treatment of errors requires use of the entire Fisher matrix.
+#            Additionally, because the error bars are Master estimates,
+#            they do not capture the asymmetry and non-Gaussianity
+#            of the likelihood for low multipole moments l.
+# Column 6 = portion of column 5 error attributed to measurement errors,
+#            in "2SN + NN" form, units = uK^2.
+# Column 7 = portion of column 5 error attributed to cosmic variance, 
+#            assuming the best-fit LCDM 
+   4.5     2     7         0.0079         0.0219         0.0162         0.0147
+  15.5     8    23         0.0404         0.0250         0.0249         0.0007
+  36.5    24    49         0.2159         0.0640         0.0639         0.0019
+  74.5    50    99         0.7733         0.1452         0.1450         0.0075
+ 124.5   100   149         1.4528         0.3457         0.3455         0.0139
+ 174.5   150   199         1.4414         0.6721         0.6720         0.0106
+ 224.5   200   249         1.7693         1.2230         1.2230         0.0133
+ 274.5   250   299         6.5833         2.1604         2.1598         0.0542
+ 324.5   300   349        17.8315         3.6729         3.6708         0.1250
+ 374.5   350   399        25.7210         6.0071         6.0045         0.1762
+ 424.5   400   449        24.3060         9.5101         9.5087         0.1620
+ 474.5   450   499        43.2702        14.7799        14.7796         0.0982
+ 549.5   500   599        16.0864        20.5483        20.5483         0.0559
+ 674.5   600   749        22.8930        47.1841        47.1839         0.1279
+ 824.5   750   899        76.9939       136.8842       136.8842         0.0655
+ 962.0   900  1024      -386.7125       352.5211       352.5211         0.1367

@@ -1,0 +1,14 @@
+####################################################################
+# This file provides CMB B-mode polarization bandpowers C^{BB}_\ell 
+# as measured by SPT-pol in "Detection of B-mode Polarization in 
+# the Cosmic Microwave Background with Data from the South Pole 
+# Telescope", PRL, 111 (2013) 141301, arXiv:1307.5830.
+# 
+# The bandpowers should be used only for visualization purposes.
+####################################################################
+# Lavg, ClBB(x1e4*lavg) [uK**2], Std(ClBB(x1e4*lavg)) [uK**2]
+ 550 8.68 2.00
+1250 6.27 0.98
+1950 1.27 0.57
+2650 0.45 0.49
+

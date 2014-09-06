@@ -1,0 +1,19 @@
+# QUIET First Season Result (Dec. 15th, 2010)
+# Pipeline A: these results correspond to Table 5 and Figure 11 of arXiv:1012.3191
+#
+#  Here we tabulate the bandpowers for the EE, BB, and EB power spectra from
+#  pipeline A.  We remind the reader that the lowest multipole bin in EE has
+#  foreground contamination.  And that since the systematic studies were done
+#  in the framework of Pipeline A, its values are reported as the official
+#  QUIET result.
+#
+# lmin	lmax	EE	+dEE	-dEE	BB	+dBB	-dBB	EB	+dEB	-dEB	BB 95% U.L.
+25	75	0.33	0.16	-0.11	-0.01	0.06	-0.04	-0.00	0.07	-0.07	0.11
+76	125	0.82	0.23	-0.20	0.04	0.14	-0.12	-0.10	0.11	-0.12	0.29
+126	175	0.93	0.34	-0.31	0.24	0.28	-0.25	0.71	0.22	-0.20	0.73
+176	225	1.11	0.58	-0.52	0.64	0.53	-0.46	0.18	0.38	-0.38	1.55
+226	275	2.46	1.10	-0.99	1.07	0.98	-0.86	-0.52	0.68	-0.69	2.75
+276	325	8.2	2.1	-1.9	0.8	1.6	-1.4	0.9	1.3	-1.3	3.5
+326	375	11.5	3.6	-3.3	-2.2	2.7	-2.4	0.0	2.0	-2.0	2.4
+376	425	15.0	6.2	-5.8	-4.9	5.3	-4.9	3.2	3.9	-3.9	4.2
+426	475	21.3	12.5	-11.5	1.8	11.2	-10.3	4.5	8.3	-8.2	20.9
