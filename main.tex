@@ -3,7 +3,7 @@
 \usepackage[squaren]{SIunits}
 \usepackage{varwidth,setspace}
 \usepackage{tikz}
-\usetikzlibrary{intersections,positioning,backgrounds,fit,matrix,shapes,calc,decorations.pathmorphing}
+\usetikzlibrary{intersections,positioning,backgrounds,fit,matrix,shapes,calc,decorations.pathmorphing,decorations.text}
 \usetheme{default}
 
 \newcommand*{\mimg}[2]{\begingroup
@@ -434,6 +434,33 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}{Planck to the rescue (or not)}
+	\begin{center}
+		\begin{tikzpicture}
+			\node at (0,0) {\scalebox{1}[-1]{\includegraphics[width=\textwidth]{planck_poldust_masked_vflip.png}}};
+			\uncover<2->{%
+			\node at (0,0) {\includegraphics[width=0.98\textwidth]{bicep2_footprint2.png}};
+		\path[postaction={decorate},decoration={text along path,text=BICEP2}] (0.4,-1.6) .. controls (0.8,-2.1) .. ++(12mm,-4mm);}
+		\end{tikzpicture}
+
+		Planck polarized dust emission at 353 GHz
+	\end{center}
+\end{frame}
+
+\begin{frame}{High polarization fraction in low-dust regions}
+	\begin{center}
+		\vspace{1.3mm}
+		\begin{tikzpicture}
+			\node at (0,0) {\scalebox{1}[-1]{\includegraphics[width=\textwidth]{planck_polfrac_masked_vflip.png}}};
+			\node at (0,0) {\includegraphics[width=0.98\textwidth]{bicep2_footprint2.png}};
+			\path[postaction={decorate},decoration={text along path,text=BICEP2}] (0.4,-1.6) .. controls (0.8,-2.1) .. ++(12mm,-4mm);
+			\node at (-0.0,-2.8) {\includegraphics[width=6cm]{planck_polfrac_colorbar.png}};
+		\end{tikzpicture}
+
+		Planck dust polarization fraction
+	\end{center}
+\end{frame}
+
 %\begin{frame}{Observational status}
 %	\begin{center}
 %		\vspace{-5mm}
@@ -477,81 +504,44 @@
 %	\end{itemize}
 %\end{frame}
 
-\begin{frame}{Beating down the noise}
-	\begin{itemize}
-		\item Much of the contamination is noise. Array noise can be reduced by
-			adding more detectors, and the rest can be integrated down by repeated
-			observations.
-		\item Scanning modulates signal, moving it from high-noise to lower-noise
-			sample-frequencies.
-		\item Results in very large data sets
-		\item Map-making
-	\end{itemize}
-\end{frame}
-
-%\begin{frame}{Telescope systematics}
+%\begin{frame}{Observational status}
 %	\begin{itemize}
-%		\item Local effects from telescope or its local environment on Earth
-%		\item Glitches, seasonal/daily variations gain/pointing/beam, sun/ground sidelobes,
-%			magnetic pickup, instrument polarization, etc.
-%		\item Unlikely to rotate with the sky and have a fixed amplitude in sky-coordinates
-%		\item Will therefore vary depending on time and/or direction of observation
-%		\item Null tests: summer vs. winter, day vs. night, east vs. west, good vs. bad
-%			weather, high vs. low elevation, high vs. low scanning speed, etc.
-%		\item A good suite of null tests can make us confident that we have eliminated
-%			telescope systematics, and are seeing the sky as it is.
+%		\item Before BICEP 2: Forest of measurements all fit standard 8-parameter(check)
+%			LCDM model with no tensor perturbations (r < 0.11)
+%		\item r limited by T cosmic variance
+%		\item B-modes do not suffer from this, but not competitive
+%		\item Lensing B-modes detected
+%		\item After BICEP 2: Solid detection at face value (5 sigma (check))
+%		\item Larger than expected
+%		\item Still very weak signal -> Have to worry about very weak systematics
 %	\end{itemize}
 %\end{frame}
 %
-%\begin{frame}{Sky systematics}
+%\begin{frame}{BICEP 2 telescope systematics}
 %	\begin{itemize}
-%		\item Systematic effects between the Earth and the surface of last scattering
-%		\item Emission from the milky way (dust, synchrotron, etc.), faraday rotation,
-%			unresolved point sources, SZ clusters, lensing, etc.
-%		\item Fixed with respect to CMB
-%		\item but usually different spectrum: multi-frequency observations necessary
-%		\item Exception: lensing
+%		\item Cite some criticism
+%		\item Quick summary of most important telescope systematics
+%		\item Null test suite: Very thorough, telescope systematics probably not an issue
+%			(after revised paper)
 %	\end{itemize}
 %\end{frame}
-
-\begin{frame}{Observational status}
-	\begin{itemize}
-		\item Before BICEP 2: Forest of measurements all fit standard 8-parameter(check)
-			LCDM model with no tensor perturbations (r < 0.11)
-		\item r limited by T cosmic variance
-		\item B-modes do not suffer from this, but not competitive
-		\item Lensing B-modes detected
-		\item After BICEP 2: Solid detection at face value (5 sigma (check))
-		\item Larger than expected
-		\item Still very weak signal -> Have to worry about very weak systematics
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{BICEP 2 telescope systematics}
-	\begin{itemize}
-		\item Cite some criticism
-		\item Quick summary of most important telescope systematics
-		\item Null test suite: Very thorough, telescope systematics probably not an issue
-			(after revised paper)
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{BICEP 2 sky systematics}
-	\begin{itemize}
-		\item Summary of sky systematics considered by BICEP 2 team (mostly dust)
-		\item The foreground models used
-		\item Criticism + later developments
-		\item Did not allow for (quite large) uncertainty in polarization models
-		\item Wrong polarization fraction
-		\item Radio loops??
-		\item Results suffer from being single-frequency (But BICEP 1)
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Upcoming experiments}
-\end{frame}
-
-\begin{frame}{Direct detection?}
-\end{frame}
+%
+%\begin{frame}{BICEP 2 sky systematics}
+%	\begin{itemize}
+%		\item Summary of sky systematics considered by BICEP 2 team (mostly dust)
+%		\item The foreground models used
+%		\item Criticism + later developments
+%		\item Did not allow for (quite large) uncertainty in polarization models
+%		\item Wrong polarization fraction
+%		\item Radio loops??
+%		\item Results suffer from being single-frequency (But BICEP 1)
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Upcoming experiments}
+%\end{frame}
+%
+%\begin{frame}{Direct detection?}
+%\end{frame}
 
 \end{document}
