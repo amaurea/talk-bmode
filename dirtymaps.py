@@ -85,7 +85,7 @@ def parse_powlaw(infostr):
 
 def add(res, m, desc):
 	m2 = enmap.ifft(enmap.map2harm(m)).real
-	res.tqu.append(m)
+	res.tqu.append(m.copy())
 	res.teb.append(m2)
 	res.desc.append(desc)
 	print desc

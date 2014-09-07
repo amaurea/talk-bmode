@@ -8,7 +8,9 @@
 
 \newcommand*{\mimg}[2]{\begingroup
 \setbox0=\hbox{\includegraphics[height=#2]{#1}}\parbox{\wd0}{\box0}\endgroup}
-
+\newcommand*{\symok}[0]{\includegraphics[height=1em]{symbol_ok.pdf}}
+\newcommand*{\symbad}[0]{\includegraphics[height=1em]{symbol_bad.pdf}}
+\newcommand*{\symidk}[0]{{\bf\color{blue}\Large?}}
 
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 \setbeamertemplate{footline}{\hspace*{.5cm}\scriptsize{\hfill\raisebox{1mm}{\insertframenumber}\hspace*{.5cm}}}
@@ -113,24 +115,6 @@
 		\end{tabular}};
 		\uncover<2>{\node at (1.5,-4) {\includegraphics[height=3cm]{qudef.pdf}};}
 	\end{tikzpicture}
-\end{frame}
-
-\begin{frame}{E, B and Q, U}
-	\begin{itemize}
-		\item E and B result from quadrupole-convolutions of Q and U
-		\begin{align*}
-			E =& \mimg{out_dirty/queb_0.png}{1cm} \otimes Q + \mimg{out_dirty/queb_2.png}{1cm} \otimes U \\
-			B =& \mimg{out_dirty/queb_1.png}{1cm} \otimes Q + \mimg{out_dirty/queb_3.png}{1cm} \otimes U
-		\end{align*}
-	\item Non-local transformation
-		\begin{tabular}{cccc}
-			Q & U & E & B \\
-			\includegraphics[height=2cm]{out_dirty/single_src_tqu_1.png} &
-			\includegraphics[height=2cm]{out_dirty/single_src_tqu_2.png} &
-			\includegraphics[height=2cm]{out_dirty/single_src_teb_1.png} &
-			\includegraphics[height=2cm]{out_dirty/single_src_teb_2.png}
-		\end{tabular}
-	\end{itemize}
 \end{frame}
 
 \begin{frame}{E, B and Q, U}
@@ -259,8 +243,8 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Recovering the sky}
-	\begin{block}{Ideal case: Simple linear problem}
+\begin{frame}{Recovering the sky - ideal case}
+	Can model TOD as linear combination of CMB and noise:
 	\[ d = {\color{green}P}{\color{blue}s} + {\color{red}n} \]
 	with TOD $d$,
 	scan pattern + telescope response {\color{green} $P$},
@@ -268,14 +252,105 @@
 	Then
 	\[ {\color{blue}s} = ({\color{green}P}^T{\color{red}N}^{-1}{\color{green}P})^{-1}{\color{green}P}^T{\color{red}N}^{-1}d \]
 	is an optimal estimator.
-	\end{block}
-	\uncover<2->{%
-	\begin{block}{Real world: Full of systematics}
+\end{frame}
+
+\begin{frame}{Throw samples at it to beat down noise}
+	\begin{center}
+	\hspace*{-1.4cm}\begin{tabular}{ccc}
+		T & Q & U \\
+		\only<1>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_000_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_000_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_000_2.png}}%
+		\only<2>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_001_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_001_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_001_2.png}}%
+		\only<3>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_002_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_002_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_002_2.png}}%
+		\only<4>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_003_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_003_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_003_2.png}}%
+		\only<5>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_004_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_004_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_004_2.png}}%
+		\only<6>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_005_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_005_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_005_2.png}}%
+		\only<7>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_006_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_006_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_006_2.png}}%
+		\only<8>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_007_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_007_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_007_2.png}}%
+		\only<9>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_008_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_008_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_008_2.png}}%
+		\only<10>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_009_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_009_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_009_2.png}}%
+		\only<11>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_010_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_010_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_010_2.png}}%
+		\only<12>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_011_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_011_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_011_2.png}}%
+		\only<13>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_012_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_012_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_012_2.png}}%
+		\only<14>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_013_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_013_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_013_2.png}}%
+		\only<15>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_014_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_014_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_014_2.png}}%
+		\only<16>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_015_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_015_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_015_2.png}}%
+		\only<17>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_016_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_016_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_016_2.png}}%
+		\only<18>{%
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_017_0.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_017_1.png} &
+		\includegraphics[height=4cm]{out_dirty/scansims/scansims_017_2.png}}%
+	\end{tabular}\hspace*{-1.4cm}
+\end{center}
+\end{frame}
+
+\begin{frame}{Recovering the sky - real world}
+	\begin{center}
+	\[ d = {\color{green}P}{\color{blue}s} + {\color{red}n} \]
+	\begin{tikzpicture}[bad/.style={line width=3pt,red}]
+		\uncover<2->{%
+		\node at (0,0) (A) {\includegraphics[height=4cm]{out_dirty/02_lens_teb_2.png}};
+		\draw[bad] (A.north west) -- (A.south east);
+		\draw[bad] (A.south west) -- (A.north east);}
+		\uncover<3->{%
+		\node at (5,0) (B) {\includegraphics[height=4cm]{out_dirty/09_sidelobe_teb_2.png}};}
+	\end{tikzpicture}
+	\uncover<4->{%
 	\[ d = {\color{green}P}({\color{blue}s} + \underbrace{{\color{purple} \textrm{gal} +
 		\textrm{ptsrc} + \ldots}}_{\textrm{sky systematics}}) +
 		{\color{red}n} + \underbrace{\color{orange} \textrm{optics} + \textrm{glitch} +
-	\ldots}_{\textrm{telescope systematics}} \]
-	\end{block}}
+	\ldots}_{\textrm{telescope systematics}} \]}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Handling telescope systematics}
@@ -341,17 +416,80 @@
 	\end{center}
 \end{frame}
 
-%
-%%Don't want to get too specific about foregrounds before starting BICEP
-%%section. Need a natural way to go from the short foreground summary
-%%to CMB spectra.
-%%
-%%Status before bicep (TT, EE, BB plot possible? Afraid EE and BB will overlap and be messy)
-%%Bicep results
-%%Surprise
-%%Flurry of articles and blog posts
-%%Criticism
+\begin{frame}{Measuring the power spectrum}
+	\begin{itemize}
+		\item Ideal, full-sky, noiseless case
+			\begin{align*}
+				C_\ell^{XY} &= \langle X_{\ell m} Y_{\ell m}^* \rangle \textrm{  for  } X,Y \in \{T,E,B\} \\
+				T_{\ell m} &= \int Y_{\ell m}^*(\hat n) T(\hat n) d\Omega \\
+				(E_{\ell m} + iB_{\ell m}) &= \int {}_2Y_{\ell m}^*(\hat n)(Q(\hat n)+iU(\hat n)) d\Omega
+			\end{align*}
+		\item Real maps: inhomogeneous noise, often cut sky
+		\item Noise bias
+		\item Breaks orthogonality of spherical harmonics
+			\begin{itemize}
+				\item Mixes E-modes and B-modes
+				\item Correlates nearby multipoles
+			\end{itemize}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}{E-B mixing}
+	\begin{itemize}
+		\item E and B result from quadrupole-convolutions of Q and U
+		\begin{align*}
+			\uncover<2->{E =& \mimg{out_dirty/queb_0.png}{1cm} \otimes Q + \mimg{out_dirty/queb_2.png}{1cm} \otimes U} \\
+			\uncover<3->{B =& \mimg{out_dirty/queb_1.png}{1cm} \otimes Q + \mimg{out_dirty/queb_3.png}{1cm} \otimes U}
+		\end{align*}
+		\item<4-> Non-local transformation
+		\uncover<5->{%
+		\begin{tabular}{cccc}
+			Q & U & E & B \\
+			\includegraphics[height=2cm]{out_dirty/single_src_tqu_1.png} &
+			\includegraphics[height=2cm]{out_dirty/single_src_tqu_2.png} &
+			\includegraphics[height=2cm]{out_dirty/single_src_teb_1.png} &
+			\includegraphics[height=2cm]{out_dirty/single_src_teb_2.png}
+		\end{tabular}}
+	\item<6-> EB decomposition ambiguous for cut sky!
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{E-B mixing}
+	\begin{center}
+		\begin{tabular}{cccc}
+			\uncover<1->{TEB full} & \uncover<2->{TQU full} & \uncover<3->{TQU masked} & \uncover<4->{TEB masked} \\
+			\uncover<1->{\includegraphics[height=2.3cm]{out_dirty/tebmix_0_0.png}} &
+			\uncover<2->{\includegraphics[height=2.3cm]{out_dirty/tebmix_1_0.png}} &
+			\uncover<3->{\includegraphics[height=2.3cm]{out_dirty/tebmix_2_0.png}} &
+			\uncover<4->{\includegraphics[height=2.3cm]{out_dirty/tebmix_3_0.png}} \\
+			\uncover<1->{\includegraphics[height=2.3cm]{out_dirty/tebmix_0_1.png}} &
+			\uncover<2->{\includegraphics[height=2.3cm]{out_dirty/tebmix_1_1.png}} &
+			\uncover<3->{\includegraphics[height=2.3cm]{out_dirty/tebmix_2_1.png}} &
+			\uncover<4->{\includegraphics[height=2.3cm]{out_dirty/tebmix_3_1.png}} \\
+			\uncover<1->{\includegraphics[height=2.3cm]{out_dirty/tebmix_0_2.png}} &
+			\uncover<2->{\includegraphics[height=2.3cm]{out_dirty/tebmix_1_2.png}} &
+			\uncover<3->{\includegraphics[height=2.3cm]{out_dirty/tebmix_2_2.png}} &
+			\uncover<4->{\includegraphics[height=2.3cm]{out_dirty/tebmix_3_2.png}}
+		\end{tabular}
+	\end{center}
+\end{frame}
+%
+%\begin{frame}{Pure B-mode estimators}
+%
+%\end{frame}
+
+%
+%%
+%%%Don't want to get too specific about foregrounds before starting BICEP
+%%%section. Need a natural way to go from the short foreground summary
+%%%to CMB spectra.
+%%%
+%%%Status before bicep (TT, EE, BB plot possible? Afraid EE and BB will overlap and be messy)
+%%%Bicep results
+%%%Surprise
+%%%Flurry of articles and blog posts
+%%%Criticism
+%
 \begin{frame}{Observational status before BICEP 2}
 	\begin{center}
 		\vspace{-5mm}
@@ -385,6 +523,17 @@
 			\draw[thick,->] (B.south) -- ++(0,-6.1mm);}
 		\end{tikzpicture}
 	\end{center}
+\end{frame}
+
+\begin{frame}{The BICEP 2 results}
+	\begin{center}
+		\begin{tabular}{c}
+			\uncover<1->{\includegraphics[width=6cm]{news_cnn.png}} \\
+			\uncover<2->{\includegraphics[width=6cm]{news_bbc.png}} \\
+			\uncover<3->{\includegraphics[width=6cm]{news_njt.png}} \\
+			\uncover<4->{\includegraphics[width=6cm]{news_guardian.png}}
+	\end{tabular}
+\end{center}
 \end{frame}
 
 \begin{frame}{Observational status after BICEP 2}
@@ -423,18 +572,100 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{DDM2 and CIB}
+\begin{frame}{BICEP 2's claims}
+	\begin{itemize}
+		\item<2-> $7\sigma$ detection of low-$\ell$ BB excess consistent with $r=0.2$
+		\item<3-> Not an instrument artifact
+			\begin{itemize}
+				\item<4-> Large suite of null-tests
+				\item<5-> Seen by other instrument (KECK) at same frequency
+			\end{itemize}
+		\item<6-> Not dust
+			\begin{itemize}
+				\item<7-> 4 dust models predict little polarized dust
+				\item<8-> 1 hybrid model with Planck data predicts little dust
+				\item<9-> 1 model based on Planck pol. obs. predicts little dust
+				\item<10-> The 6 models agree, and do not cross-correlate with signal
+			\end{itemize}
+		\item<11-> Not synchrotron (WMAP 23 GHz pol: $r<0.003$)
+		\item<12-> Not point sources ($r\approx0.001$)
+		\item<13-> After foreground marginalization significance is still $5.9\sigma$
+		\item<14-> Cross-correlation with 100 GHz BICEP 1 gives $3\sigma$ detection,
+			with dust and synchrotron disfavored at $2.3\sigma$ and $2.2\sigma$.
+	\end{itemize}
+\end{frame}
+%
+%% Reactions:
+%%  http://telescoper.wordpress.com/2014/03/19/time-for-a-cosmological-reality-check/
+%%  http://resonaances.blogspot.co.uk/2014/05/is-bicep-wrong.html
+%%  Nice tension article: http://arxiv.org/abs/1404.0373
+%%  Apples to oranges (slightly): http://arxiv.org/abs/1405.1390 (takes planck from <0.11 to <0.13)
+%%  Phil! http://philbull.wordpress.com/2014/03/17/how-solid-is-the-bicep2-b-mode-result/
+%%  Extremely critical Seljak paper: http://arxiv.org/abs/1405.5857
+%%  Very critical Spergel: http://arxiv.org/abs/1405.7351
+
+\begin{frame}{BICEP 2 under high scrutiny}
+	\begin{itemize}
+		\item<2-> 650 citations in 6 months! (99\% theory papers)
+		\item<3-> Lots of blogs: Resonaances, In the dark, Of particluar significance, Preposterous Universe, Blank on the map, ...
+		\item<4-> A fair amount of criticism (blogs + 1405.7351 + 1405.5857)
+		\item<5-> Practically every BICEP2-claim has been challenged
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Are the BICEP 2 null-tests failing?}
+	\hspace*{-5mm}
+	\begin{tikzpicture}[bad/.style={line width=2pt,red}]
+		\node at (0,0.0) {\includegraphics[width=5.5cm]{bicep2_null_v1_a.png}};
+		\node at (6.0,0) {\includegraphics[width=5.5cm]{bicep2_null_v1_b.png}};
+		\draw[bad] ( 1.25, 0.07) ellipse (5mm and 2mm);
+		\draw[bad] ( 8.50, 3.00) ellipse (5mm and 2mm);
+		\draw[bad] (-1.24,-3.07) ellipse (5mm and 2mm);
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Are the BICEP 2 null-tests failing? No, wrong table!}
+	\hspace*{-5mm}
+	\begin{tikzpicture}[good/.style={line width=2pt,green},bad/.style={line width=2pt,red}]
+		\node at (0,0.0) {\includegraphics[width=5.5cm]{bicep2_null_v2_a.png}};
+		\node at (6.0,0) {\includegraphics[width=5.5cm]{bicep2_null_v2_b.png}};
+		\draw[bad] ( 1.25, 0.07) ellipse (5mm and 2mm);
+		\draw[good] ( 8.50, 3.00) ellipse (5mm and 2mm);
+		\draw[good] (-1.24,-3.07) ellipse (5mm and 2mm);
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Is BICEP 2 underestimating the dust?}
+	\begin{columns}
+		\begin{column}{6cm}
+			\begin{itemize}
+				\item<2-> 5/6 models use a fixed pol frac of $\sim 5\%$
+				\item<3-> Uncertain, can range from 2\%-20\%
+				\item<4-> BICEP 2 does not marginalize over pol frac uncertainty
+				\item<5-> $5\% \rightarrow 20\%$ gives 16 times more dust power!
+			\end{itemize}
+		\end{column}
+		\begin{column}{6cm}
+			\begin{tabular}{c}
+				\includegraphics[width=6cm]{foregroundproj.pdf}
+			\end{tabular}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{But doesn't the Planck-only model (DDM2) agree?}
 	\vspace{-9mm}
 	\begin{center}
 		\begin{tikzpicture}
 			\node[anchor=north west] {\includegraphics[height=8.5cm]{bicep_ddm2.png}};
+			\node[anchor=north west] at (0.59,-1.61) {\includegraphics[width=0.93\textwidth]{bicep2_footprint2.png}};
 			\uncover<2->{%
 			\draw[line width=1mm,red] (0.1,-1.95) -- ++(2.75,0);}
 		\end{tikzpicture}
 	\end{center}
 \end{frame}
 
-\begin{frame}{Planck to the rescue (or not)}
+\begin{frame}{So what does Planck actually say?}
 	\begin{center}
 		\begin{tikzpicture}
 			\node at (0,0) {\scalebox{1}[-1]{\includegraphics[width=\textwidth]{planck_poldust_masked_vflip.png}}};
@@ -461,87 +692,132 @@
 	\end{center}
 \end{frame}
 
-%\begin{frame}{Observational status}
-%	\begin{center}
-%		\vspace{-5mm}
-%		\includegraphics[height=9cm]{bb_limits_mar2014.pdf}
-%	\end{center}
-%\end{frame}
+\begin{frame}{Raido loops? (synchrotron+dust)}
+	\begin{center}
+		\includegraphics[width=\textwidth]{radioloops.png}
 
-% Reactions:
-%  http://telescoper.wordpress.com/2014/03/19/time-for-a-cosmological-reality-check/
-%  http://resonaances.blogspot.co.uk/2014/05/is-bicep-wrong.html
-%  Nice tension article: http://arxiv.org/abs/1404.0373
-%  Apples to oranges (slightly): http://arxiv.org/abs/1405.1390 (takes planck from <0.11 to <0.13)
+		{\footnotesize arxiv:1404.1899}
+
+		\uncover<2->{Probably not: Not visible in Planck dust pol. map}
+	\end{center}
+\end{frame}
+
+\begin{frame}{What about the BICEP1-BICEP2 cross-correlation?}
+	\begin{columns}
+		\begin{column}{6cm}
+			Flauger, Hill and Spergel argue that
+			\begin{enumerate}
+				\item<2-> Synchrotron and dust pol. both aligned with local magnetic field
+				\item<3-> Synchrotron and dust pol. strongly correlated
+				\item<4-> Significant synchrotron at 100 GHz
+				\item<5-> Significant dust at 150 Ghz
+				\item<6-> Could explain whole effect?
+			\end{enumerate}
+		\end{column}
+		\begin{column}{6cm}
+			\begin{center}
+			\uncover<7->{
+				\includegraphics[width=6cm]{uniform_poldir.png}
+
+				\large \color{red}Perhaps not
+				}
+			\end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{BICEP 2 summary}
+	\begin{itemize}
+		\item $7\sigma$ detection of low-$\ell$ BB excess consistent with $r=0.2$ \uncover<2->{\symok}
+		\item Not an instrument artifact \uncover<3->{\symok}
+		\item Not dust \uncover<4->{\symidk}
+		\item Not synchrotron (WMAP 23 GHz pol: $r<0.003$) \uncover<5->{\symok}
+		\item Not point sources ($r\approx0.001$) \uncover<6->{\symok}
+		\item After foreground marginalization significance is still $5.9\sigma$ \uncover<7->{\symbad}
+		\item Cross-corr. with 100 GHz BICEP 1 gives $3\sigma$ detection \uncover<8->{\symok},
+			with dust and synchrotron disfavored at $2.3\sigma$ and $2.2\sigma$ \uncover<9->{\symidk}
+	\end{itemize}
+\end{frame}
 
 
-%\begin{frame}{From pristine CMB to dirty data}
-%	\begin{itemize}
-%		\item Surface of last scattering (young, enthusiastic photon)
-%		\item Lensing by large-scale structure (+ISW)
-%		\item Contaminated by dusty galaxies and radio sources
-%		\item and distorted by the SZ effect
-%		\item Enters our galaxy... (somewhat dirty and tired photon)
-%		\item Contaminated by synchrotron, free-free and dust
-%		\item and rotated and depolarized by magnetic fields
-%		\item Enters solar system... (beat-up and messy photon)
-%		\item Contaminated by Zodiacal light
-%		\item Enters atmosphere...
-%		\item Refracted
-%		\item Contaminated by atmosphere (huge, but only T)
-%		\item Enters telescope... (bleeding, crawling photon)
-%		\item Contaminated by sun and ground from sidelobes
-%		\item and optics polarization
-%		\item and smeared by the beam (and pointing jitter)
-%		\item Enters detector... (dead photon or electron)
-%		\item Scaled by (uncertain, variable) gain
-%		\item and smeared by (uncertain, variable) time constants
-%		\item and contaminated by "1/f" and "white" noise (with uncertain, variable properties)
-%		\item and data glitches
-%		\item and rotated by uncertain detector polarization angles
-%		\item The result: Time-ordered data
-%		\item Task: Peel back all those layers of contamination to recover the pure CMB
-%	\end{itemize}
-%\end{frame}
 
-%\begin{frame}{Observational status}
-%	\begin{itemize}
-%		\item Before BICEP 2: Forest of measurements all fit standard 8-parameter(check)
-%			LCDM model with no tensor perturbations (r < 0.11)
-%		\item r limited by T cosmic variance
-%		\item B-modes do not suffer from this, but not competitive
-%		\item Lensing B-modes detected
-%		\item After BICEP 2: Solid detection at face value (5 sigma (check))
-%		\item Larger than expected
-%		\item Still very weak signal -> Have to worry about very weak systematics
-%	\end{itemize}
-%\end{frame}
 %
-%\begin{frame}{BICEP 2 telescope systematics}
-%	\begin{itemize}
-%		\item Cite some criticism
-%		\item Quick summary of most important telescope systematics
-%		\item Null test suite: Very thorough, telescope systematics probably not an issue
-%			(after revised paper)
-%	\end{itemize}
-%\end{frame}
+%%\begin{frame}{Observational status}
+%%	\begin{center}
+%%		\vspace{-5mm}
+%%		\includegraphics[height=9cm]{bb_limits_mar2014.pdf}
+%%	\end{center}
+%%\end{frame}
+
 %
-%\begin{frame}{BICEP 2 sky systematics}
-%	\begin{itemize}
-%		\item Summary of sky systematics considered by BICEP 2 team (mostly dust)
-%		\item The foreground models used
-%		\item Criticism + later developments
-%		\item Did not allow for (quite large) uncertainty in polarization models
-%		\item Wrong polarization fraction
-%		\item Radio loops??
-%		\item Results suffer from being single-frequency (But BICEP 1)
-%	\end{itemize}
-%\end{frame}
 %
-%\begin{frame}{Upcoming experiments}
-%\end{frame}
+%%\begin{frame}{From pristine CMB to dirty data}
+%%	\begin{itemize}
+%%		\item Surface of last scattering (young, enthusiastic photon)
+%%		\item Lensing by large-scale structure (+ISW)
+%%		\item Contaminated by dusty galaxies and radio sources
+%%		\item and distorted by the SZ effect
+%%		\item Enters our galaxy... (somewhat dirty and tired photon)
+%%		\item Contaminated by synchrotron, free-free and dust
+%%		\item and rotated and depolarized by magnetic fields
+%%		\item Enters solar system... (beat-up and messy photon)
+%%		\item Contaminated by Zodiacal light
+%%		\item Enters atmosphere...
+%%		\item Refracted
+%%		\item Contaminated by atmosphere (huge, but only T)
+%%		\item Enters telescope... (bleeding, crawling photon)
+%%		\item Contaminated by sun and ground from sidelobes
+%%		\item and optics polarization
+%%		\item and smeared by the beam (and pointing jitter)
+%%		\item Enters detector... (dead photon or electron)
+%%		\item Scaled by (uncertain, variable) gain
+%%		\item and smeared by (uncertain, variable) time constants
+%%		\item and contaminated by "1/f" and "white" noise (with uncertain, variable properties)
+%%		\item and data glitches
+%%		\item and rotated by uncertain detector polarization angles
+%%		\item The result: Time-ordered data
+%%		\item Task: Peel back all those layers of contamination to recover the pure CMB
+%%	\end{itemize}
+%%\end{frame}
 %
-%\begin{frame}{Direct detection?}
-%\end{frame}
+%%\begin{frame}{Observational status}
+%%	\begin{itemize}
+%%		\item Before BICEP 2: Forest of measurements all fit standard 8-parameter(check)
+%%			LCDM model with no tensor perturbations (r < 0.11)
+%%		\item r limited by T cosmic variance
+%%		\item B-modes do not suffer from this, but not competitive
+%%		\item Lensing B-modes detected
+%%		\item After BICEP 2: Solid detection at face value (5 sigma (check))
+%%		\item Larger than expected
+%%		\item Still very weak signal -> Have to worry about very weak systematics
+%%	\end{itemize}
+%%\end{frame}
+%%
+%%\begin{frame}{BICEP 2 telescope systematics}
+%%	\begin{itemize}
+%%		\item Cite some criticism
+%%		\item Quick summary of most important telescope systematics
+%%		\item Null test suite: Very thorough, telescope systematics probably not an issue
+%%			(after revised paper)
+%%	\end{itemize}
+%%\end{frame}
+%%
+%%\begin{frame}{BICEP 2 sky systematics}
+%%	\begin{itemize}
+%%		\item Summary of sky systematics considered by BICEP 2 team (mostly dust)
+%%		\item The foreground models used
+%%		\item Criticism + later developments
+%%		\item Did not allow for (quite large) uncertainty in polarization models
+%%		\item Wrong polarization fraction
+%%		\item Radio loops??
+%%		\item Results suffer from being single-frequency (But BICEP 1)
+%%	\end{itemize}
+%%\end{frame}
+%%
+%%\begin{frame}{Upcoming experiments}
+%%\end{frame}
+%%
+%%\begin{frame}{Direct detection?}
+%%\end{frame}
 
 \end{document}
