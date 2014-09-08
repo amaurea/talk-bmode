@@ -104,16 +104,17 @@
 				\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_teb_1.png} &
 				\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_teb_2.png}
 		\end{tabular}};
+		\uncover<2->{%
 		\draw[bad] (-5, 1.5) -- (5,-1.8);
-		\draw[bad] (-5,-1.8) -- (5, 1.5);
+		\draw[bad] (-5,-1.8) -- (5, 1.5);}
 		\node at (0,-4) {\begin{tabular}{ccc}
-				\only<1-2>{T+pol}\only<3->{T} & \uncover<3->{Q} & \uncover<3->{U} \\
-				\only<1-2>{\includegraphics[width=0.30\textwidth]{out_dirty/t_polvec.png}}%
-				\only<3->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_0.png}} &
-				\uncover<3->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_1.png}} &
-				\uncover<3->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_2.png}}
+				\only<3-4>{T+pol}\only<5->{T} & \uncover<5->{Q} & \uncover<5->{U} \\
+				\only<3-4>{\includegraphics[width=0.30\textwidth]{out_dirty/t_polvec.png}}%
+				\only<5->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_0.png}} &
+				\uncover<5->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_1.png}} &
+				\uncover<5->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_2.png}}
 		\end{tabular}};
-		\uncover<2>{\node at (1.5,-4) {\includegraphics[height=3cm]{qudef.pdf}};}
+		\uncover<4>{\node at (1.5,-4) {\includegraphics[height=3cm]{qudef.pdf}};}
 	\end{tikzpicture}
 \end{frame}
 
@@ -534,8 +535,13 @@
 	\begin{itemize}
 		\item<2-> 650 citations in 6 months! (99\% theory papers)
 		\item<3-> Lots of blogs: Resonaances, In the dark, Of particluar significance, Preposterous Universe, Blank on the map, ...
-		\item<4-> A fair amount of criticism (blogs + 1405.7351 + 1405.5857)
-		\item<5-> Practically every BICEP2-claim has been challenged
+		\item<4-> A significant amount of criticism
+			\begin{itemize}
+				\item<5-> Most of it on blogs
+				\item<6-> arXiv:1405.7351 -- Raphael Flauger, J. Colin Hill, David N. Spergel
+				\item<7-> arXiv:1405.5857 -- Michael J. Mortonson, Uroš Seljak
+			\end{itemize}
+		\item<8-> Practically every BICEP2-claim has been challenged
 	\end{itemize}
 \end{frame}
 
