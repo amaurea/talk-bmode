@@ -8,6 +8,8 @@
 
 \newcommand*{\mimg}[2]{\begingroup
 \setbox0=\hbox{\includegraphics[height=#2]{#1}}\parbox{\wd0}{\box0}\endgroup}
+\newcommand*{\rmimg}[2]{\begingroup
+\setbox0=\hbox{\includegraphics[angle=90,origin=c,height=#2]{#1}}\parbox{\wd0}{\box0}\endgroup}
 \newcommand*{\symok}[0]{\includegraphics[height=1em]{symbol_ok.pdf}}
 \newcommand*{\symbad}[0]{\includegraphics[height=1em]{symbol_bad.pdf}}
 \newcommand*{\symidk}[0]{{\bf\color{blue}\Large?}}
@@ -114,13 +116,32 @@
 				\uncover<5->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_1.png}} &
 				\uncover<5->{\includegraphics[width=0.30\textwidth]{out_dirty/04_sz_tqu_2.png}}
 		\end{tabular}};
-		\uncover<4>{\node at (1.5,-4) {\includegraphics[height=3cm]{qudef.pdf}};}
+		\uncover<4>{\node at (1.5,-4) {\includegraphics[height=3cm]{qudef_healpix.pdf}};}
 	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{E,B and Q, U}
+	\begin{center}
+		\only<1>{E and B result from quadrupole-convolutions of Q and U}%
+		\only<2>{Reverse also holds}%
+
+	\scalebox{1.7}{
+		\begin{minipage}{5cm}
+			\begin{align*}
+				\only<1>{%
+				E =& \rmimg{out_dirty/queb_0.png}{1cm} \otimes Q + \mimg{out_dirty/queb_2.png}{1cm} \otimes U \\
+				B =& \mimg{out_dirty/queb_1.png}{1cm} \otimes Q + \rmimg{out_dirty/queb_3.png}{1cm} \otimes U}%
+				\only<2>{%
+				Q =& \rmimg{out_dirty/ebqu_0.png}{1cm} \otimes E + \mimg{out_dirty/ebqu_2.png}{1cm} \otimes B \\
+				U =& \mimg{out_dirty/ebqu_1.png}{1cm} \otimes E + \rmimg{out_dirty/ebqu_3.png}{1cm} \otimes B}%
+			\end{align*}
+		\end{minipage}}
+	\end{center}
 \end{frame}
 
 \begin{frame}{E, B and Q, U}
 	\begin{center}
-		\includegraphics[height=8cm]{EB_iau.pdf}
+		\includegraphics[height=8cm]{EB_healpix.pdf}
 	\end{center}
 \end{frame}
 
@@ -409,13 +430,13 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Which foregrounds? (Pol.)}
-	\begin{center}
-		\includegraphics[height=8.0cm,width=8cm]{bicep_foreground_freq_nor.png}
-
-		{\footnotesize Credit: Thomas Hertog}
-	\end{center}
-\end{frame}
+%\begin{frame}{Which foregrounds? (Pol.)}
+%	\begin{center}
+%		\includegraphics[height=8.0cm,width=8cm]{bicep_foreground_freq_nor.png}
+%
+%		{\footnotesize Credit: Thomas Hertog}
+%	\end{center}
+%\end{frame}
 
 \begin{frame}{Observational status before BICEP 2}
 	\begin{center}
@@ -450,17 +471,6 @@
 			\draw[thick,->] (B.south) -- ++(0,-6.1mm);}
 		\end{tikzpicture}
 	\end{center}
-\end{frame}
-
-\begin{frame}{The BICEP 2 results}
-	\begin{center}
-		\begin{tabular}{c}
-			\uncover<1->{\includegraphics[width=6cm]{news_cnn.png}} \\
-			\uncover<2->{\includegraphics[width=6cm]{news_bbc.png}} \\
-			\uncover<3->{\includegraphics[width=6cm]{news_njt.png}} \\
-			\uncover<4->{\includegraphics[width=6cm]{news_guardian.png}}
-	\end{tabular}
-\end{center}
 \end{frame}
 
 \begin{frame}{Observational status after BICEP 2}
@@ -521,6 +531,18 @@
 			with dust and synchrotron disfavored at $2.3\sigma$ and $2.2\sigma$.
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{BICEP 2 in the media}
+	\begin{center}
+		\begin{tabular}{c}
+			\uncover<1->{\includegraphics[width=6cm]{news_cnn.png}} \\
+			\uncover<2->{\includegraphics[width=6cm]{news_bbc.png}} \\
+			\uncover<3->{\includegraphics[width=6cm]{news_njt.png}} \\
+			\uncover<4->{\includegraphics[width=6cm]{news_guardian.png}}
+	\end{tabular}
+\end{center}
+\end{frame}
+
 %
 %% Reactions:
 %%  http://telescoper.wordpress.com/2014/03/19/time-for-a-cosmological-reality-check/
@@ -551,10 +573,10 @@
 		\uncover<2->{%
 		\draw[bad,rotate around={70:(0.8,1.1)}] (0.8,1.1) ellipse (15mm and 5mm);}
 		\uncover<3->{%
+		\draw[thick,blue] (-1.4,-0.75) -- (2.3,1.8);}
+		\uncover<4->{%
 		\node at (6,0) {\includegraphics[width=5cm]{beammapsims.pdf}};
 		\draw[bad,rotate around={30:(6,2.2)}] (6,2.2) ellipse (10mm and 3mm);}
-		\uncover<4->{%
-		\draw[thick,blue] (-1.4,-0.75) -- (2.3,1.8);}
 	\end{tikzpicture}
 	\uncover<5->{BICEP2: Significance of second bump $<3\sigma$}
 \end{frame}
@@ -639,7 +661,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Raido loops? (synchrotron+dust)}
+\begin{frame}{Radio loops? (synchrotron+dust)}
 	\begin{center}
 		\includegraphics[width=\textwidth]{radioloops.png}
 
@@ -658,12 +680,13 @@
 				\item<3-> Synchrotron and dust pol. strongly correlated
 				\item<4-> Significant synchrotron at 100 GHz
 				\item<5-> Significant dust at 150 Ghz
-				\item<6-> Could explain whole effect?
+				\item<6-> Would give intermediate spectral index
+				\item<7-> Could explain whole effect?
 			\end{enumerate}
 		\end{column}
 		\begin{column}{6cm}
 			\begin{center}
-			\uncover<7->{
+			\uncover<8->{
 				\includegraphics[width=6cm]{uniform_poldir.png}
 
 				\large \color{red}Perhaps not
