@@ -1,6 +1,5 @@
 import numpy as np, argparse, bunch
 from enlib import enmap, powspec, lensing, utils
-from matplotlib.pylab import *
 parser = argparse.ArgumentParser()
 parser.add_argument("scal_cls")
 parser.add_argument("tens_cls")

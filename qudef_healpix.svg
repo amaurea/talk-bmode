@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5 -->
+
+<!-- CreationDate: Mon May 26 01:48:13 2014 -->
+
+<!-- Magnification: 1.050 -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="6.5in"
+   height="2.7in"
+   viewBox="772 4330 7754 3251"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="qudef_healpix.svg">
+  <metadata
+     id="metadata50">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs48" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="749"
+     inkscape:window-height="748"
+     id="namedview46"
+     showgrid="false"
+     inkscape:zoom="1.1452991"
+     inkscape:cx="297.24618"
+     inkscape:cy="235.32485"
+     inkscape:window-x="1680"
+     inkscape:window-y="738"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <polyline
+     id="polyline6"
+     style="fill:none;stroke:#000000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter"
+     points="1889,7559 1889,4802 " />
+  <polygon
+     id="polygon8"
+     style="fill:#000000;stroke:#000000;stroke-width:16"
+     points="1826,4825 1889,4793 1952,4825 1952,4825 1889,4667 " />
+  <polyline
+     id="polyline10"
+     style="fill:none;stroke:#000000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter"
+     points="8503,7086 1542,7086 " />
+  <polygon
+     id="polygon12"
+     style="fill:#000000;stroke:#000000;stroke-width:16"
+     points="1565,7149 1533,7086 1565,7023 1565,7023 1407,7086 " />
+  <text
+     style="font-size:252px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Times"
+     id="text14"
+     font-size="252"
+     font-weight="normal"
+     font-style="normal"
+     y="7181"
+     x="1039"
+     xml:space="preserve">RA</text>
+  <text
+     style="font-size:252px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Times"
+     id="text16"
+     font-size="252"
+     font-weight="normal"
+     font-style="normal"
+     y="4582"
+     x="1889"
+     xml:space="preserve">Dec</text>
+  <polyline
+     id="polyline30"
+     style="fill:none;stroke:#00ff00;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter"
+     points="5580,5816 6047,6283 "
+     transform="matrix(1.6712712,0,0,1.6712712,-2462.5139,-3890.5354)" />
+  <polyline
+     id="polyline32"
+     style="fill:none;stroke:#ff00ff;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter"
+     points="7081,5816 6614,6283 "
+     transform="matrix(1.6712712,0,0,1.6712712,-5646.6207,-3890.5354)" />
+  <polyline
+     id="polyline34"
+     style="fill:none;stroke:#ff0000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter"
+     points="4015,5670 4015,6330 "
+     transform="matrix(1.6712712,0,0,1.6712712,-3987.6743,-3890.5354)" />
+  <polyline
+     id="polyline36"
+     style="fill:none;stroke:#0000ff;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter"
+     points="5243,6047 4582,6047 "
+     transform="matrix(1.6712712,0,0,1.6712712,-3987.6743,-3890.5354)" />
+  <text
+     style="font-size:421.16033936px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.04178178in;font-family:Times"
+     id="text38"
+     font-size="252"
+     font-weight="normal"
+     font-style="normal"
+     y="5268.0308"
+     x="2565.3799"
+     xml:space="preserve">+Q</text>
+  <text
+     style="font-size:421.16033936px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.04178178in;font-family:Times"
+     id="text40"
+     font-size="252"
+     font-weight="normal"
+     font-style="normal"
+     y="5268.0308"
+     x="4144.731"
+     xml:space="preserve">-Q</text>
+  <text
+     style="font-size:421.16033936px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.04178178in;font-family:Times"
+     id="text42"
+     font-size="252"
+     font-weight="normal"
+     font-style="normal"
+     y="5268.0308"
+     x="5724.082"
+     xml:space="preserve">+U</text>
+  <text
+     style="font-size:421.16033936px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.04178178in;font-family:Times"
+     id="text44"
+     font-size="252"
+     font-weight="normal"
+     font-style="normal"
+     y="5268.0308"
+     x="7301.7622"
+     xml:space="preserve">-U</text>
+</svg>

@@ -43,14 +43,22 @@ def read_sptpol_indirect(fname):
 	data = np.loadtxt(fname).T
 	data[1:] *= data[0]**2/(2*np.pi)
 	return data
+def read_sptpol_2014_te_ee(fname):
+	data = np.loadtxt(fname).T
+	l = data[2]
+	return (np.array([l,data[3],data[4]]),np.array([l,data[5],data[6]]))
 
 # planck
 planck_tt = read_l12xyy("planck_tt.txt")
-planck_ee = read_lxy("planck_ee.txt")
+planck_ee_pre = read_lxy("planck_ee.txt")
+planck_ee = read_l12xy("planck_2015_ee.txt")
+
 # spt
 spt_tt_11 = read_spt("spt_tt_11.txt",3)
 spt_tt_14 = read_spt("spt_tt_14.txt",3)
 sptpol_bb = read_sptpol_indirect("sptpol_bb_indirect2.txt")
+_, sptpol_ee = read_sptpol_2014_te_ee("sptpol_2014.txt")
+
 # act
 act_tt = read_lxy("act_148_tt.txt")
 actpol_tt, actpol_ee, actpol_bb = read_l12ttteeebb("actpol.txt")
@@ -118,10 +126,13 @@ def plot_mainfig(ofile, after):
 	plot(wmap_ee,   "orange", "WMAP")
 	plot(quiet_w_ee, "purple", "QUIET W")
 	plot(polarbear_ee, "cyan", "POLARBEAR")
-	plot(planck_ee, "red", None)
+	plot(actpol_ee, "green", None)
 	if after:
-		plot(actpol_ee, "green", None)
+		plot(planck_ee, "red", None)
+		plot(sptpol_ee, "blue", None)
 		plot(bicep2_ee, "black", None)
+	else:
+		plot(planck_ee_pre, "red", None)
 	# BB part
 	plotlim(bicep1_bblim, "brown", "BICEP 1")
 	plotlim(quiet_w_bblim, "purple", None)
